@@ -1,0 +1,108 @@
+{
+  "name": "esbuild",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "prefix": "app",
+  "sourceRoot": "apps/esbuild/src",
+  "tags": [],
+  "targets": {
+    "browser-rspack": {
+      "command": "npx rspack build",
+      "options": {
+        "cwd": "apps/esbuild"
+      }
+    },
+    "server-rspack": {
+      "command": "npx rspack build --config rspack.server.config.js",
+      "options": {
+        "cwd": "apps/esbuild"
+      }
+    },
+    "build-rspack": {
+      "dependsOn": ["browser-rspack", "server-rspack"],
+      "command": "echo Rspack Build Completed"
+    },
+    "build-rsbuild": {
+      "command": "npx rsbuild build",
+      "options": {
+        "cwd": "apps/esbuild"
+      }
+    },
+    "build": {
+      "executor": "@angular-devkit/build-angular:application",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/esbuild",
+        "index": "apps/esbuild/src/index.html",
+        "browser": "apps/esbuild/src/main.ts",
+        "polyfills": ["zone.js"],
+        "tsConfig": "apps/esbuild/tsconfig.app.json",
+        "assets": [
+          {
+            "glob": "**/*",
+            "input": "apps/esbuild/public"
+          }
+        ],
+        "styles": ["apps/esbuild/src/styles.css"],
+        "scripts": [],
+        "server": "apps/esbuild/src/main.server.ts",
+        "ssr": {
+          "entry": "apps/esbuild/src/server.ts"
+        },
+        "prerender": true
+      },
+      "configurations": {
+        "production": {
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "500kb",
+              "maximumError": "1mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "4kb",
+              "maximumError": "8kb"
+            }
+          ],
+          "outputHashing": "all"
+        },
+        "development": {
+          "optimization": false,
+          "extractLicenses": false,
+          "sourceMap": true
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "serve": {
+      "executor": "@angular-devkit/build-angular:dev-server",
+      "configurations": {
+        "production": {
+          "buildTarget": "esbuild:build:production"
+        },
+        "development": {
+          "buildTarget": "esbuild:build:development"
+        }
+      },
+      "defaultConfiguration": "development"
+    },
+    "extract-i18n": {
+      "executor": "@angular-devkit/build-angular:extract-i18n",
+      "options": {
+        "buildTarget": "esbuild:build"
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint"
+    },
+    "serve-static": {
+      "executor": "@nx/web:file-server",
+      "options": {
+        "buildTarget": "esbuild:build",
+        "staticFilePath": "dist/apps/esbuild/browser",
+        "spa": true
+      }
+    }
+  }
+}

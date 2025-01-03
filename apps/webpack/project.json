@@ -1,0 +1,158 @@
+{
+  "name": "webpack",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "prefix": "app",
+  "sourceRoot": "apps/webpack/src",
+  "tags": [],
+  "targets": {
+    "browser-rspack": {
+      "command": "npx rspack build",
+      "options": {
+        "cwd": "apps/webpack"
+      }
+    },
+    "server-rspack": {
+      "command": "npx rspack build --config rspack.server.config.js",
+      "options": {
+        "cwd": "apps/webpack"
+      }
+    },
+    "build-rspack": {
+      "dependsOn": ["browser-rspack", "server-rspack"],
+      "command": "echo Rspack Build Completed"
+    },
+    "build-rsbuild": {
+      "command": "npx rsbuild build",
+      "options": {
+        "cwd": "apps/webpack"
+      }
+    },
+    "build": {
+      "executor": "@angular-devkit/build-angular:browser",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/webpack/browser",
+        "index": "apps/webpack/src/index.html",
+        "main": "apps/webpack/src/main.ts",
+        "polyfills": ["zone.js"],
+        "tsConfig": "apps/webpack/tsconfig.app.json",
+        "assets": [
+          {
+            "glob": "**/*",
+            "input": "apps/webpack/public"
+          }
+        ],
+        "styles": ["apps/webpack/src/styles.css"],
+        "scripts": []
+      },
+      "configurations": {
+        "production": {
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "500kb",
+              "maximumError": "1mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "4kb",
+              "maximumError": "8kb"
+            }
+          ],
+          "outputHashing": "all"
+        },
+        "development": {
+          "buildOptimizer": false,
+          "optimization": false,
+          "vendorChunk": true,
+          "extractLicenses": false,
+          "sourceMap": true,
+          "namedChunks": true
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "serve": {
+      "executor": "@angular-devkit/build-angular:dev-server",
+      "configurations": {
+        "production": {
+          "buildTarget": "webpack:build:production"
+        },
+        "development": {
+          "buildTarget": "webpack:build:development"
+        }
+      },
+      "defaultConfiguration": "development"
+    },
+    "extract-i18n": {
+      "executor": "@angular-devkit/build-angular:extract-i18n",
+      "options": {
+        "buildTarget": "webpack:build"
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint"
+    },
+    "serve-static": {
+      "executor": "@nx/web:file-server",
+      "options": {
+        "buildTarget": "webpack:build",
+        "spa": true
+      }
+    },
+    "server": {
+      "dependsOn": ["build"],
+      "executor": "@angular-devkit/build-angular:server",
+      "options": {
+        "outputPath": "dist/apps/webpack/server",
+        "main": "apps/webpack/src/server.ts",
+        "tsConfig": "apps/webpack/tsconfig.server.json"
+      },
+      "configurations": {
+        "production": {
+          "outputHashing": "media"
+        },
+        "development": {
+          "buildOptimizer": false,
+          "optimization": false,
+          "sourceMap": true,
+          "extractLicenses": false,
+          "vendorChunk": true
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "serve-ssr": {
+      "executor": "@angular-devkit/build-angular:ssr-dev-server",
+      "configurations": {
+        "development": {
+          "browserTarget": "webpack:build:development",
+          "serverTarget": "webpack:server:development"
+        },
+        "production": {
+          "browserTarget": "webpack:build:production",
+          "serverTarget": "webpack:server:production"
+        }
+      },
+      "defaultConfiguration": "development"
+    },
+    "prerender": {
+      "executor": "@angular-devkit/build-angular:prerender",
+      "options": {
+        "routes": ["/"]
+      },
+      "configurations": {
+        "development": {
+          "browserTarget": "webpack:build:development",
+          "serverTarget": "webpack:server:development"
+        },
+        "production": {
+          "browserTarget": "webpack:build:production",
+          "serverTarget": "webpack:server:production"
+        }
+      },
+      "defaultConfiguration": "production"
+    }
+  }
+}
