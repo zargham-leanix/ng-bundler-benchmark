@@ -36,7 +36,7 @@ jobs:
       # Prepend any command with "nx-cloud record --" to record its logs to Nx Cloud
       # - run: npx nx-cloud record -- echo Hello World
       # Nx Affected runs only tasks affected by the changes in this PR/commit. Learn more: https://nx.dev/ci/features/affected
-      - run: rm -rf .angular && pnpm nx run esbuild:build-webpack --skip-nx-cache
+      - run: rm -rf .angular && NODE_OPTIONS="--max-old-space-size=8192" pnpm nx run esbuild:build-webpack --skip-nx-cache
       - run: pnpm nx run esbuild:build-esbuild --skip-nx-cache
       - run: rm -rf .angular && pnpm nx run esbuild:build-rspack --skip-nx-cache
       - run: pnpm nx run esbuild:build-rsbuild --skip-nx-cache
