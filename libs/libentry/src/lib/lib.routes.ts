@@ -1,187 +1,103 @@
 import { Route } from '@angular/router';
-import { Lib0Component } from './lib0/lib0.component';
-import { lib0Routes } from '@ng-bundler-benchmark/lib0';
-import { lib1Routes } from '@ng-bundler-benchmark/lib1';
-import { lib2Routes } from '@ng-bundler-benchmark/lib2';
-import { lib3Routes } from '@ng-bundler-benchmark/lib3';
-import { lib4Routes } from '@ng-bundler-benchmark/lib4';
-import { lib5Routes } from '@ng-bundler-benchmark/lib5';
-import { lib6Routes } from '@ng-bundler-benchmark/lib6';
-import { lib7Routes } from '@ng-bundler-benchmark/lib7';
-import { lib8Routes } from '@ng-bundler-benchmark/lib8';
-import { lib9Routes } from '@ng-bundler-benchmark/lib9';
-import { lib10Routes } from '@ng-bundler-benchmark/lib10';
-import { lib11Routes } from '@ng-bundler-benchmark/lib11';
-import { lib12Routes } from '@ng-bundler-benchmark/lib12';
-import { lib13Routes } from '@ng-bundler-benchmark/lib13';
-import { lib14Routes } from '@ng-bundler-benchmark/lib14';
-import { lib15Routes } from '@ng-bundler-benchmark/lib15';
-import { lib16Routes } from '@ng-bundler-benchmark/lib16';
-import { lib17Routes } from '@ng-bundler-benchmark/lib17';
-import { lib18Routes } from '@ng-bundler-benchmark/lib18';
-import { lib19Routes } from '@ng-bundler-benchmark/lib19';
-import { lib20Routes } from '@ng-bundler-benchmark/lib20';
-import { lib21Routes } from '@ng-bundler-benchmark/lib21';
-import { lib22Routes } from '@ng-bundler-benchmark/lib22';
-import { lib23Routes } from '@ng-bundler-benchmark/lib23';
-import { lib24Routes } from '@ng-bundler-benchmark/lib24';
-import { lib25Routes } from '@ng-bundler-benchmark/lib25';
-import { lib26Routes } from '@ng-bundler-benchmark/lib26';
-import { lib27Routes } from '@ng-bundler-benchmark/lib27';
-import { lib28Routes } from '@ng-bundler-benchmark/lib28';
-import { lib29Routes } from '@ng-bundler-benchmark/lib29';
-import { lib30Routes } from '@ng-bundler-benchmark/lib30';
-import { lib31Routes } from '@ng-bundler-benchmark/lib31';
-import { lib32Routes } from '@ng-bundler-benchmark/lib32';
-import { lib33Routes } from '@ng-bundler-benchmark/lib33';
-import { lib34Routes } from '@ng-bundler-benchmark/lib34';
-import { lib35Routes } from '@ng-bundler-benchmark/lib35';
-import { lib36Routes } from '@ng-bundler-benchmark/lib36';
-import { lib37Routes } from '@ng-bundler-benchmark/lib37';
-import { lib38Routes } from '@ng-bundler-benchmark/lib38';
-import { lib39Routes } from '@ng-bundler-benchmark/lib39';
-import { lib40Routes } from '@ng-bundler-benchmark/lib40';
-import { lib41Routes } from '@ng-bundler-benchmark/lib41';
-import { lib42Routes } from '@ng-bundler-benchmark/lib42';
-import { lib43Routes } from '@ng-bundler-benchmark/lib43';
-import { lib44Routes } from '@ng-bundler-benchmark/lib44';
-import { lib45Routes } from '@ng-bundler-benchmark/lib45';
-import { lib46Routes } from '@ng-bundler-benchmark/lib46';
-import { lib47Routes } from '@ng-bundler-benchmark/lib47';
-import { lib48Routes } from '@ng-bundler-benchmark/lib48';
-import { lib49Routes } from '@ng-bundler-benchmark/lib49';
-import { lib50Routes } from '@ng-bundler-benchmark/lib50';
-import { lib51Routes } from '@ng-bundler-benchmark/lib51';
-import { lib52Routes } from '@ng-bundler-benchmark/lib52';
-import { lib53Routes } from '@ng-bundler-benchmark/lib53';
-import { lib54Routes } from '@ng-bundler-benchmark/lib54';
-import { lib55Routes } from '@ng-bundler-benchmark/lib55';
-import { lib56Routes } from '@ng-bundler-benchmark/lib56';
-import { lib57Routes } from '@ng-bundler-benchmark/lib57';
-import { lib58Routes } from '@ng-bundler-benchmark/lib58';
-import { lib59Routes } from '@ng-bundler-benchmark/lib59';
-import { lib60Routes } from '@ng-bundler-benchmark/lib60';
-import { lib61Routes } from '@ng-bundler-benchmark/lib61';
-import { lib62Routes } from '@ng-bundler-benchmark/lib62';
-import { lib63Routes } from '@ng-bundler-benchmark/lib63';
-import { lib64Routes } from '@ng-bundler-benchmark/lib64';
-import { lib65Routes } from '@ng-bundler-benchmark/lib65';
-import { lib66Routes } from '@ng-bundler-benchmark/lib66';
-import { lib67Routes } from '@ng-bundler-benchmark/lib67';
-import { lib68Routes } from '@ng-bundler-benchmark/lib68';
-import { lib69Routes } from '@ng-bundler-benchmark/lib69';
-import { lib70Routes } from '@ng-bundler-benchmark/lib70';
-import { lib71Routes } from '@ng-bundler-benchmark/lib71';
-import { lib72Routes } from '@ng-bundler-benchmark/lib72';
-import { lib73Routes } from '@ng-bundler-benchmark/lib73';
-import { lib74Routes } from '@ng-bundler-benchmark/lib74';
-import { lib75Routes } from '@ng-bundler-benchmark/lib75';
-import { lib76Routes } from '@ng-bundler-benchmark/lib76';
-import { lib77Routes } from '@ng-bundler-benchmark/lib77';
-import { lib78Routes } from '@ng-bundler-benchmark/lib78';
-import { lib79Routes } from '@ng-bundler-benchmark/lib79';
-import { lib80Routes } from '@ng-bundler-benchmark/lib80';
-import { lib81Routes } from '@ng-bundler-benchmark/lib81';
-import { lib82Routes } from '@ng-bundler-benchmark/lib82';
-import { lib83Routes } from '@ng-bundler-benchmark/lib83';
-import { lib84Routes } from '@ng-bundler-benchmark/lib84';
-import { lib85Routes } from '@ng-bundler-benchmark/lib85';
-import { lib86Routes } from '@ng-bundler-benchmark/lib86';
-import { lib87Routes } from '@ng-bundler-benchmark/lib87';
-import { lib88Routes } from '@ng-bundler-benchmark/lib88';
-import { lib89Routes } from '@ng-bundler-benchmark/lib89';
-
 
 export const libEntryRoutes: Route[] = [
-  { path: '0', children: lib0Routes },
-  { path: '1', children: lib1Routes },
-  { path: '2', children: lib2Routes },
-  { path: '3', children: lib3Routes },
-  { path: '4', children: lib4Routes },
-  { path: '5', children: lib5Routes },
-  { path: '6', children: lib6Routes },
-  { path: '7', children: lib7Routes },
-  { path: '8', children: lib8Routes },
-  { path: '9', children: lib9Routes },
-  { path: '10', children: lib10Routes },
-  { path: '11', children: lib11Routes },
-  { path: '12', children: lib12Routes },
-  { path: '13', children: lib13Routes },
-  { path: '14', children: lib14Routes },
-  { path: '15', children: lib15Routes },
-  { path: '16', children: lib16Routes },
-  { path: '17', children: lib17Routes },
-  { path: '18', children: lib18Routes },
-  { path: '19', children: lib19Routes },
-  { path: '20', children: lib20Routes },
-  { path: '21', children: lib21Routes },
-  { path: '22', children: lib22Routes },
-  { path: '23', children: lib23Routes },
-  { path: '24', children: lib24Routes },
-  { path: '25', children: lib25Routes },
-  { path: '26', children: lib26Routes },
-  { path: '27', children: lib27Routes },
-  { path: '28', children: lib28Routes },
-  { path: '29', children: lib29Routes },
-  { path: '30', children: lib30Routes },
-  { path: '31', children: lib31Routes },
-  { path: '32', children: lib32Routes },
-  { path: '33', children: lib33Routes },
-  { path: '34', children: lib34Routes },
-  { path: '35', children: lib35Routes },
-  { path: '36', children: lib36Routes },
-  { path: '37', children: lib37Routes },
-  { path: '38', children: lib38Routes },
-  { path: '39', children: lib39Routes },
-  { path: '40', children: lib40Routes },
-  { path: '41', children: lib41Routes },
-  { path: '42', children: lib42Routes },
-  { path: '43', children: lib43Routes },
-  { path: '44', children: lib44Routes },
-  { path: '45', children: lib45Routes },
-  { path: '46', children: lib46Routes },
-  { path: '47', children: lib47Routes },
-  { path: '48', children: lib48Routes },
-  { path: '49', children: lib49Routes },
-  { path: '50', children: lib50Routes },
-  { path: '51', children: lib51Routes },
-  { path: '52', children: lib52Routes },
-  { path: '53', children: lib53Routes },
-  { path: '54', children: lib54Routes },
-  { path: '55', children: lib55Routes },
-  { path: '56', children: lib56Routes },
-  { path: '57', children: lib57Routes },
-  { path: '58', children: lib58Routes },
-  { path: '59', children: lib59Routes },
-  { path: '60', children: lib60Routes },
-  { path: '61', children: lib61Routes },
-  { path: '62', children: lib62Routes },
-  { path: '63', children: lib63Routes },
-  { path: '64', children: lib64Routes },
-  { path: '65', children: lib65Routes },
-  { path: '66', children: lib66Routes },
-  { path: '67', children: lib67Routes },
-  { path: '68', children: lib68Routes },
-  { path: '69', children: lib69Routes },
-  { path: '70', children: lib70Routes },
-  { path: '71', children: lib71Routes },
-  { path: '72', children: lib72Routes },
-  { path: '73', children: lib73Routes },
-  { path: '74', children: lib74Routes },
-  { path: '75', children: lib75Routes },
-  { path: '76', children: lib76Routes },
-  { path: '77', children: lib77Routes },
-  { path: '78', children: lib78Routes },
-  { path: '79', children: lib79Routes },
-  { path: '80', children: lib80Routes },
-  { path: '81', children: lib81Routes },
-  { path: '82', children: lib82Routes },
-  { path: '83', children: lib83Routes },
-  { path: '84', children: lib84Routes },
-  { path: '85', children: lib85Routes },
-  { path: '86', children: lib86Routes },
-  { path: '87', children: lib87Routes },
-  { path: '88', children: lib88Routes },
-  { path: '89', children: lib89Routes },
-  { path: '', component: Lib0Component }
+  { path: '0', loadChildren:() => import('@ng-bundler-benchmark/lib0').then(m => m.lib0Routes) },
+  { path: '1', loadChildren:() => import('@ng-bundler-benchmark/lib1').then(m => m.lib1Routes) },
+  { path: '2', loadChildren:() => import('@ng-bundler-benchmark/lib2').then(m => m.lib2Routes) },
+  { path: '3', loadChildren:() => import('@ng-bundler-benchmark/lib3').then(m => m.lib3Routes) },
+  { path: '4', loadChildren:() => import('@ng-bundler-benchmark/lib4').then(m => m.lib4Routes) },
+  { path: '5', loadChildren:() => import('@ng-bundler-benchmark/lib5').then(m => m.lib5Routes) },
+  { path: '6', loadChildren:() => import('@ng-bundler-benchmark/lib6').then(m => m.lib6Routes) },
+  { path: '7', loadChildren:() => import('@ng-bundler-benchmark/lib7').then(m => m.lib7Routes) },
+  { path: '8', loadChildren:() => import('@ng-bundler-benchmark/lib8').then(m => m.lib8Routes) },
+  { path: '9', loadChildren:() => import('@ng-bundler-benchmark/lib9').then(m => m.lib9Routes) },
+  { path: '10', loadChildren:() => import('@ng-bundler-benchmark/lib10').then(m => m.lib10Routes) },
+  { path: '11', loadChildren:() => import('@ng-bundler-benchmark/lib11').then(m => m.lib11Routes) },
+  { path: '12', loadChildren:() => import('@ng-bundler-benchmark/lib12').then(m => m.lib12Routes) },
+  { path: '13', loadChildren:() => import('@ng-bundler-benchmark/lib13').then(m => m.lib13Routes) },
+  { path: '14', loadChildren:() => import('@ng-bundler-benchmark/lib14').then(m => m.lib14Routes) },
+  { path: '15', loadChildren:() => import('@ng-bundler-benchmark/lib15').then(m => m.lib15Routes) },
+  { path: '16', loadChildren:() => import('@ng-bundler-benchmark/lib16').then(m => m.lib16Routes) },
+  { path: '17', loadChildren:() => import('@ng-bundler-benchmark/lib17').then(m => m.lib17Routes) },
+  { path: '18', loadChildren:() => import('@ng-bundler-benchmark/lib18').then(m => m.lib18Routes) },
+  { path: '19', loadChildren:() => import('@ng-bundler-benchmark/lib19').then(m => m.lib19Routes) },
+  { path: '20', loadChildren:() => import('@ng-bundler-benchmark/lib20').then(m => m.lib20Routes) },
+  { path: '21', loadChildren:() => import('@ng-bundler-benchmark/lib21').then(m => m.lib21Routes) },
+  { path: '22', loadChildren:() => import('@ng-bundler-benchmark/lib22').then(m => m.lib22Routes) },
+  { path: '23', loadChildren:() => import('@ng-bundler-benchmark/lib23').then(m => m.lib23Routes) },
+  { path: '24', loadChildren:() => import('@ng-bundler-benchmark/lib24').then(m => m.lib24Routes) },
+  { path: '25', loadChildren:() => import('@ng-bundler-benchmark/lib25').then(m => m.lib25Routes) },
+  { path: '26', loadChildren:() => import('@ng-bundler-benchmark/lib26').then(m => m.lib26Routes) },
+  { path: '27', loadChildren:() => import('@ng-bundler-benchmark/lib27').then(m => m.lib27Routes) },
+  { path: '28', loadChildren:() => import('@ng-bundler-benchmark/lib28').then(m => m.lib28Routes) },
+  { path: '29', loadChildren:() => import('@ng-bundler-benchmark/lib29').then(m => m.lib29Routes) },
+  { path: '30', loadChildren:() => import('@ng-bundler-benchmark/lib30').then(m => m.lib30Routes) },
+  { path: '31', loadChildren:() => import('@ng-bundler-benchmark/lib31').then(m => m.lib31Routes) },
+  { path: '32', loadChildren:() => import('@ng-bundler-benchmark/lib32').then(m => m.lib32Routes) },
+  { path: '33', loadChildren:() => import('@ng-bundler-benchmark/lib33').then(m => m.lib33Routes) },
+  { path: '34', loadChildren:() => import('@ng-bundler-benchmark/lib34').then(m => m.lib34Routes) },
+  { path: '35', loadChildren:() => import('@ng-bundler-benchmark/lib35').then(m => m.lib35Routes) },
+  { path: '36', loadChildren:() => import('@ng-bundler-benchmark/lib36').then(m => m.lib36Routes) },
+  { path: '37', loadChildren:() => import('@ng-bundler-benchmark/lib37').then(m => m.lib37Routes) },
+  { path: '38', loadChildren:() => import('@ng-bundler-benchmark/lib38').then(m => m.lib38Routes) },
+  { path: '39', loadChildren:() => import('@ng-bundler-benchmark/lib39').then(m => m.lib39Routes) },
+  { path: '40', loadChildren:() => import('@ng-bundler-benchmark/lib40').then(m => m.lib40Routes) },
+  { path: '41', loadChildren:() => import('@ng-bundler-benchmark/lib41').then(m => m.lib41Routes) },
+  { path: '42', loadChildren:() => import('@ng-bundler-benchmark/lib42').then(m => m.lib42Routes) },
+  { path: '43', loadChildren:() => import('@ng-bundler-benchmark/lib43').then(m => m.lib43Routes) },
+  { path: '44', loadChildren:() => import('@ng-bundler-benchmark/lib44').then(m => m.lib44Routes) },
+  { path: '45', loadChildren:() => import('@ng-bundler-benchmark/lib45').then(m => m.lib45Routes) },
+  { path: '46', loadChildren:() => import('@ng-bundler-benchmark/lib46').then(m => m.lib46Routes) },
+  { path: '47', loadChildren:() => import('@ng-bundler-benchmark/lib47').then(m => m.lib47Routes) },
+  { path: '48', loadChildren:() => import('@ng-bundler-benchmark/lib48').then(m => m.lib48Routes) },
+  { path: '49', loadChildren:() => import('@ng-bundler-benchmark/lib49').then(m => m.lib49Routes) },
+  { path: '50', loadChildren:() => import('@ng-bundler-benchmark/lib50').then(m => m.lib50Routes) },
+  { path: '51', loadChildren:() => import('@ng-bundler-benchmark/lib51').then(m => m.lib51Routes) },
+  { path: '52', loadChildren:() => import('@ng-bundler-benchmark/lib52').then(m => m.lib52Routes) },
+  { path: '53', loadChildren:() => import('@ng-bundler-benchmark/lib53').then(m => m.lib53Routes) },
+  { path: '54', loadChildren:() => import('@ng-bundler-benchmark/lib54').then(m => m.lib54Routes) },
+  { path: '55', loadChildren:() => import('@ng-bundler-benchmark/lib55').then(m => m.lib55Routes) },
+  { path: '56', loadChildren:() => import('@ng-bundler-benchmark/lib56').then(m => m.lib56Routes) },
+  { path: '57', loadChildren:() => import('@ng-bundler-benchmark/lib57').then(m => m.lib57Routes) },
+  { path: '58', loadChildren:() => import('@ng-bundler-benchmark/lib58').then(m => m.lib58Routes) },
+  { path: '59', loadChildren:() => import('@ng-bundler-benchmark/lib59').then(m => m.lib59Routes) },
+  { path: '60', loadChildren:() => import('@ng-bundler-benchmark/lib60').then(m => m.lib60Routes) },
+  { path: '61', loadChildren:() => import('@ng-bundler-benchmark/lib61').then(m => m.lib61Routes) },
+  { path: '62', loadChildren:() => import('@ng-bundler-benchmark/lib62').then(m => m.lib62Routes) },
+  { path: '63', loadChildren:() => import('@ng-bundler-benchmark/lib63').then(m => m.lib63Routes) },
+  { path: '64', loadChildren:() => import('@ng-bundler-benchmark/lib64').then(m => m.lib64Routes) },
+  { path: '65', loadChildren:() => import('@ng-bundler-benchmark/lib65').then(m => m.lib65Routes) },
+  { path: '66', loadChildren:() => import('@ng-bundler-benchmark/lib66').then(m => m.lib66Routes) },
+  { path: '67', loadChildren:() => import('@ng-bundler-benchmark/lib67').then(m => m.lib67Routes) },
+  { path: '68', loadChildren:() => import('@ng-bundler-benchmark/lib68').then(m => m.lib68Routes) },
+  { path: '69', loadChildren:() => import('@ng-bundler-benchmark/lib69').then(m => m.lib69Routes) },
+  { path: '70', loadChildren:() => import('@ng-bundler-benchmark/lib70').then(m => m.lib70Routes) },
+  { path: '71', loadChildren:() => import('@ng-bundler-benchmark/lib71').then(m => m.lib71Routes) },
+  { path: '72', loadChildren:() => import('@ng-bundler-benchmark/lib72').then(m => m.lib72Routes) },
+  { path: '73', loadChildren:() => import('@ng-bundler-benchmark/lib73').then(m => m.lib73Routes) },
+  { path: '74', loadChildren:() => import('@ng-bundler-benchmark/lib74').then(m => m.lib74Routes) },
+  { path: '75', loadChildren:() => import('@ng-bundler-benchmark/lib75').then(m => m.lib75Routes) },
+  { path: '76', loadChildren:() => import('@ng-bundler-benchmark/lib76').then(m => m.lib76Routes) },
+  { path: '77', loadChildren:() => import('@ng-bundler-benchmark/lib77').then(m => m.lib77Routes) },
+  { path: '78', loadChildren:() => import('@ng-bundler-benchmark/lib78').then(m => m.lib78Routes) },
+  { path: '79', loadChildren:() => import('@ng-bundler-benchmark/lib79').then(m => m.lib79Routes) },
+  { path: '80', loadChildren:() => import('@ng-bundler-benchmark/lib80').then(m => m.lib80Routes) },
+  { path: '81', loadChildren:() => import('@ng-bundler-benchmark/lib81').then(m => m.lib81Routes) },
+  { path: '82', loadChildren:() => import('@ng-bundler-benchmark/lib82').then(m => m.lib82Routes) },
+  { path: '83', loadChildren:() => import('@ng-bundler-benchmark/lib83').then(m => m.lib83Routes) },
+  { path: '84', loadChildren:() => import('@ng-bundler-benchmark/lib84').then(m => m.lib84Routes) },
+  { path: '85', loadChildren:() => import('@ng-bundler-benchmark/lib85').then(m => m.lib85Routes) },
+  { path: '86', loadChildren:() => import('@ng-bundler-benchmark/lib86').then(m => m.lib86Routes) },
+  { path: '87', loadChildren:() => import('@ng-bundler-benchmark/lib87').then(m => m.lib87Routes) },
+  { path: '88', loadChildren:() => import('@ng-bundler-benchmark/lib88').then(m => m.lib88Routes) },
+  { path: '89', loadChildren:() => import('@ng-bundler-benchmark/lib89').then(m => m.lib89Routes) },
+  { path: '91', loadChildren:() => import('@ng-bundler-benchmark/lib91').then(m => m.lib91Routes) },
+  { path: '92', loadChildren:() => import('@ng-bundler-benchmark/lib92').then(m => m.lib92Routes) },
+  { path: '93', loadChildren:() => import('@ng-bundler-benchmark/lib93').then(m => m.lib93Routes) },
+  { path: '94', loadChildren:() => import('@ng-bundler-benchmark/lib94').then(m => m.lib94Routes) },
+  { path: '95', loadChildren:() => import('@ng-bundler-benchmark/lib95').then(m => m.lib95Routes) },
+  { path: '96', loadChildren:() => import('@ng-bundler-benchmark/lib96').then(m => m.lib96Routes) },
+  { path: '97', loadChildren:() => import('@ng-bundler-benchmark/lib97').then(m => m.lib97Routes) },
+  { path: '98', loadChildren:() => import('@ng-bundler-benchmark/lib98').then(m => m.lib98Routes) },
+  { path: '99', loadChildren:() => import('@ng-bundler-benchmark/lib99').then(m => m.lib99Routes) },
 ];

@@ -22,13 +22,18 @@
       "dependsOn": ["browser-rspack", "server-rspack"],
       "command": "echo Rspack Build Completed"
     },
+    "build-webpack": {
+      "dependsOn": ["browser-webpack", "server-webpack"],
+      "command": "echo Webpack Build Completed"
+    },
     "build-rsbuild": {
       "command": "npx rsbuild build",
       "options": {
         "cwd": "apps/esbuild"
       }
     },
-    "build": {
+    "build-esbuild": {
+      "cache": false,
       "executor": "@angular-devkit/build-angular:application",
       "outputs": ["{options.outputPath}"],
       "options": {
@@ -75,6 +80,50 @@
       },
       "defaultConfiguration": "production"
     },
+    "browser-esbuild": {
+      "cache": false,
+      "executor": "@angular-devkit/build-angular:application",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/esbuild",
+        "index": "apps/esbuild/src/index.html",
+        "browser": "apps/esbuild/src/main.ts",
+        "polyfills": ["zone.js"],
+        "tsConfig": "apps/esbuild/tsconfig.app.json",
+        "assets": [
+          {
+            "glob": "**/*",
+            "input": "apps/esbuild/public"
+          }
+        ],
+        "styles": ["apps/esbuild/src/styles.css"],
+        "scripts": [],
+        "prerender": false
+      },
+      "configurations": {
+        "production": {
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "500kb",
+              "maximumError": "1mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "4kb",
+              "maximumError": "8kb"
+            }
+          ],
+          "outputHashing": "all"
+        },
+        "development": {
+          "optimization": false,
+          "extractLicenses": false,
+          "sourceMap": true
+        }
+      },
+      "defaultConfiguration": "production"
+    },
     "serve": {
       "executor": "@angular-devkit/build-angular:dev-server",
       "configurations": {
@@ -86,6 +135,72 @@
         }
       },
       "defaultConfiguration": "development"
+    },
+    "browser-webpack": {
+      "executor": "@angular-devkit/build-angular:browser",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/esbuild/browser",
+        "index": "apps/esbuild/src/index.html",
+        "main": "apps/esbuild/src/main.ts",
+        "polyfills": ["zone.js"],
+        "tsConfig": "apps/esbuild/tsconfig.app.json",
+        "assets": [
+          {
+            "glob": "**/*",
+            "input": "apps/esbuild/public"
+          }
+        ],
+        "styles": ["apps/esbuild/src/styles.css"],
+        "scripts": []
+      },
+      "configurations": {
+        "production": {
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "500kb",
+              "maximumError": "1mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "4kb",
+              "maximumError": "8kb"
+            }
+          ],
+          "outputHashing": "all"
+        },
+        "development": {
+          "buildOptimizer": false,
+          "optimization": false,
+          "vendorChunk": true,
+          "extractLicenses": false,
+          "sourceMap": true,
+          "namedChunks": true
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "server-webpack": {
+      "executor": "@angular-devkit/build-angular:server",
+      "options": {
+        "outputPath": "dist/apps/esbuild/server",
+        "main": "apps/esbuild/src/server.ts",
+        "tsConfig": "apps/esbuild/tsconfig.server.json"
+      },
+      "configurations": {
+        "production": {
+          "outputHashing": "media"
+        },
+        "development": {
+          "buildOptimizer": false,
+          "optimization": false,
+          "sourceMap": true,
+          "extractLicenses": false,
+          "vendorChunk": true
+        }
+      },
+      "defaultConfiguration": "production"
     },
     "extract-i18n": {
       "executor": "@angular-devkit/build-angular:extract-i18n",

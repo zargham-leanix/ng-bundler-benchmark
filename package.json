@@ -3,7 +3,9 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "benchmark:esbuild": "hyperfine --prepare 'rm -rf .angular .nx/cache' --runs 5 'pnpm nx run esbuild:build --skip-nx-cache' 'pnpm nx run esbuild:build-rspack --skip-nx-cache' 'pnpm nx run esbuild:build-rsbuild --skip-nx-cache'"
+    "benchmark": "hyperfine --prepare 'rm -rf .angular .nx/cache' --runs 5 'NODE_OPTIONS=\"--max-old-space-size=8192\" pnpm nx run esbuild:build-webpack --skip-nx-cache' 'pnpm nx run esbuild:build-esbuild --skip-nx-cache' 'pnpm nx run esbuild:build-rspack --skip-nx-cache' 'pnpm nx run esbuild:build-rsbuild --skip-nx-cache'",
+    "benchmark:dev": "hyperfine --prepare 'rm -rf .angular .nx/cache' --runs 5 'NODE_OPTIONS=\"--max-old-space-size=8192\" pnpm nx run esbuild:browser-webpack --configuration=development --skip-nx-cache' 'pnpm nx run esbuild:browser-esbuild --configuration=development --skip-nx-cache' 'NODE_ENV=development pnpm nx run esbuild:browser-rspack --skip-nx-cache' 'NODE_ENV=development pnpm nx run esbuild:build-rsbuild --environment=browser --skip-nx-cache'",
+    "benchmark:prod": "hyperfine --prepare 'rm -rf .angular .nx/cache' --runs 5 'NODE_OPTIONS=\"--max-old-space-size=8192\" pnpm nx run esbuild:browser-webpack --skip-nx-cache' 'pnpm nx run esbuild:browser-esbuild --skip-nx-cache' 'NODE_ENV=production pnpm nx run esbuild:browser-rspack --skip-nx-cache' 'NODE_ENV=production pnpm nx run esbuild:build-rsbuild --environment=browser --skip-nx-cache'"
   },
   "private": true,
   "devDependencies": {
@@ -54,7 +56,7 @@
     "@angular/router": "~19.0.0",
     "@angular/ssr": "~19.0.0",
     "@ng-rsbuild/plugin-angular": "^19.0.0-alpha.14",
-    "@ng-rspack/build": "^0.0.35",
+    "@ng-rspack/build": "^19.0.0-alpha.14",
     "express": "~4.18.2",
     "rxjs": "~7.8.0",
     "zone.js": "~0.15.0"

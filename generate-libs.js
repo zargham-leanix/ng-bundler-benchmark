@@ -1,45 +1,11 @@
 const {execSync} = require("child_process");
 const {writeFileSync} = require('fs');
-// const DRY_RUN = false;
-// const NUMBER_OF_LIBS = 1000;
-// const NUMBER_OF_COMPONENTS = 10;
-// const LIBRARY_COMMAND = (i, parent = undefined) => `npx nx g @nx/angular:lib libs/lib${i} --routing=true  ${parent ? `--parent=${parent}` : ''} --skipFormat=true --skipPackageJson=true --skipTests=true --unitTestRunner=none --no-interactive --dryRun=${DRY_RUN}`;
-//
-// const COMPONENT_COMMAND = (i, parent) => `npx nx g @nx/angular:component ${parent}/comp${i}/comp${i}.ts --export --skipFormat --no-interactive --dryRun=${DRY_RUN}`
-//
-// function main() {
-//   console.log("Generating...")
-//   for(let i =0; i<NUMBER_OF_LIBS;i++) {
-//     console.log(`Library ${i}`)
-//     const parentRoutePath = `libs/lib${i}/src/lib/lib.routes.ts`;
-//     const parentCompPath = `libs/lib${i}/src/lib`
-//     const childLibI = NUMBER_OF_LIBS+i;
-//     const childCompPath = `libs/lib${childLibI}/src/lib`
-//
-//     execSync(LIBRARY_COMMAND(i));
-//     execSync(LIBRARY_COMMAND(childLibI, parentRoutePath));
-//
-//     for(let j =0; j<NUMBER_OF_COMPONENTS;j++) {
-//       execSync(COMPONENT_COMMAND(j, parentCompPath))
-//       execSync(COMPONENT_COMMAND(j, childCompPath))
-//     }
-//   }
-//   console.log("Done.")
-// }
-// try {
-//   main();
-// } catch(e) {
-//   console.error(e)
-// }
+const DRY_RUN = false;
+const NUMBER_OF_LIBS = 1000;
+const NUMBER_OF_COMPONENTS = 10;
+const LIBRARY_COMMAND = (i, parent = undefined) => `npx nx g @nx/angular:lib libs/lib${i} --routing=true  ${parent ? `--parent=${parent}` : ''} --skipFormat=true --skipPackageJson=true --skipTests=true --unitTestRunner=none --no-interactive --dryRun=${DRY_RUN}`;
 
-// const str = (i) => `import { lib${i}Routes } from '@ng-bundler-benchmark/lib${i}';`
-// let finalStr = '';
-//
-// for(let i = 0; i <91; i++) {
-//   finalStr = finalStr + '\n' + str(i);
-// }
-//
-// console.log(finalStr);
+const COMPONENT_COMMAND = (i, parent) => `npx nx g @nx/angular:component ${parent}/comp${i}/comp${i}.ts --export --skipFormat --no-interactive --dryRun=${DRY_RUN}`
 
 const routesStr = (i, j) => `import { Route } from '@angular/router';
 import { Lib${i}Component } from './lib${i}/lib${i}.component';
@@ -73,8 +39,49 @@ export const lib${i}Routes: Route[] = [
 
 const pathToLibRoutes = (i) => `libs/lib${i}/src/lib/lib.routes.ts`;
 
-for(let i =0; i<91;i++) {
-  const p = pathToLibRoutes(i);
-  const r = routesStr(i, 1000+i);
-  writeFileSync(p, r);
-}
+
+// function main() {
+//   console.log("Generating...")
+//   for(let i =243; i<NUMBER_OF_LIBS;i++) {
+//     console.log(`Library ${i}`)
+//     const parentRoutePath = `libs/lib${i}/src/lib/lib.routes.ts`;
+//     const parentCompPath = `libs/lib${i}/src/lib`
+//     const childLibI = NUMBER_OF_LIBS+i;
+//     const childCompPath = `libs/lib${childLibI}/src/lib`
+//
+//     execSync(LIBRARY_COMMAND(i));
+//     execSync(LIBRARY_COMMAND(childLibI, parentRoutePath));
+//
+//     for(let j =0; j<NUMBER_OF_COMPONENTS;j++) {
+//       execSync(COMPONENT_COMMAND(j, parentCompPath))
+//       execSync(COMPONENT_COMMAND(j, childCompPath))
+//     }
+//
+//     const p = pathToLibRoutes(i);
+//   const r = routesStr(i, 1000+i);
+//   writeFileSync(p, r);
+//   }
+//   console.log("Done.")
+// }
+// try {
+//   main();
+// } catch(e) {
+//   console.error(e)
+// }
+
+// const str = (i) => `import { lib${i}Routes } from '@ng-bundler-benchmark/lib${i}';`
+// let finalStr = '';
+//
+// for(let i = 0; i <91; i++) {
+//   finalStr = finalStr + '\n' + str(i);
+// }
+//
+// console.log(finalStr);
+
+
+// for(let i =0; i<91;i++) {
+//   const p = pathToLibRoutes(i);
+//   const r = routesStr(i, 1000+i);
+//   writeFileSync(p, r);
+// }
+
