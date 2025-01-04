@@ -1,7 +1,7 @@
 {
-  "name": "lib90",
+  "name": "libentry",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "libs/lib90/src",
+  "sourceRoot": "libs/libentry/src",
   "prefix": "lib",
   "projectType": "library",
   "tags": [],

@@ -18,6 +18,9 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@ng-bundler-benchmark/libentry": [
+        "libs/libentry/src/index.ts"
+      ],
       "@ng-bundler-benchmark/lib0": [
         "libs/lib0/src/index.ts"
       ],
