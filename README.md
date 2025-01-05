@@ -1,77 +1,92 @@
-# NgBundlerBenchmark
+# Angular Bundler Benchmark Repo
 
-<a alt="Nx logo" href="https://nx.dev" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="45"></a>
+## Results
 
-✨ Your new, shiny [Nx workspace](https://nx.dev) is almost ready ✨.
+M3 Macbook Pro
 
-[Learn more about this workspace setup and its capabilities](https://nx.dev/getting-started/intro#learn-nx?utm_source=nx_project&amp;utm_medium=readme&amp;utm_campaign=nx_projects) or run `npx nx graph` to visually explore what was created. Now, let's get you up to speed!
+| Build/Bundler | Prod SSR (s) | Prod (s) | Dev (s) |
+|---------------|--------------|----------|---------|
+| Webpack       | 348.707        | 224.226   | 234.449    |
+| esbuild       | 28.509         | 24.521     | 18.719    |
+| Rsbuild       | 24.690         | 20.490     | 19.675    |
+| Rspack        | 19.974         | 18.239     | 16.477    |
 
-## Finish your CI setup
+### Raw Results 
+M3 Macbook Pro
 
-[Click here to finish setting up your workspace!](https://cloud.nx.app/connect/c9gXaLwi1Z)
+**Dev Benchmark**
+```
+Benchmark 1: NODE_OPTIONS="--max-old-space-size=8192" pnpm nx run esbuild:browser-webpack --configuration=development --skip-nx-cache
+Time (mean ± σ):     234.449 s ± 26.689 s    [User: 375.234 s, System: 32.785 s]
+Range (min … max):   189.102 s … 257.536 s    5 runs
 
+Benchmark 2: pnpm nx run esbuild:browser-esbuild --configuration=development --skip-nx-cache
+Time (mean ± σ):     18.719 s ±  0.683 s    [User: 28.403 s, System: 4.507 s]
+Range (min … max):   18.203 s … 19.854 s    5 runs
 
-## Run tasks
+Benchmark 3: NODE_ENV=development pnpm nx run esbuild:browser-rspack --skip-nx-cache
+Time (mean ± σ):     16.684 s ±  0.197 s    [User: 29.222 s, System: 5.873 s]
+Range (min … max):   16.477 s … 16.921 s    5 runs
 
-To run tasks with Nx use:
+Benchmark 4: NODE_ENV=development pnpm nx run esbuild:build-rsbuild --environment=browser --skip-nx-cache
+Time (mean ± σ):     19.675 s ±  0.266 s    [User: 33.638 s, System: 6.511 s]
+Range (min … max):   19.499 s … 20.141 s    5 runs
 
-```sh
-npx nx <target> <project-name>
+Summary
+NODE_ENV=development pnpm nx run esbuild:browser-rspack --skip-nx-cache ran
+1.12 ± 0.04 times faster than pnpm nx run esbuild:browser-esbuild --configuration=development --skip-nx-cache
+1.18 ± 0.02 times faster than NODE_ENV=development pnpm nx run esbuild:build-rsbuild --environment=browser --skip-nx-cache
+14.05 ± 1.61 times faster than NODE_OPTIONS="--max-old-space-size=8192" pnpm nx run esbuild:browser-webpack --configuration=development --skip-nx-cache
+
 ```
 
-For example:
+**Prod Benchmark**
+```
+Benchmark 1: NODE_OPTIONS="--max-old-space-size=8192" pnpm nx run esbuild:browser-webpack --skip-nx-cache
+Time (mean ± σ):     224.226 s ± 43.112 s    [User: 372.578 s, System: 36.206 s]
+Range (min … max):   191.755 s … 299.733 s    5 runs
 
-```sh
-npx nx build myproject
+Benchmark 2: pnpm nx run esbuild:browser-esbuild --skip-nx-cache
+Time (mean ± σ):     24.521 s ±  0.853 s    [User: 39.717 s, System: 5.550 s]
+Range (min … max):   23.527 s … 25.373 s    5 runs
+
+Benchmark 3: NODE_ENV=production pnpm nx run esbuild:browser-rspack --skip-nx-cache
+Time (mean ± σ):     18.992 s ±  0.596 s    [User: 31.540 s, System: 6.110 s]
+Range (min … max):   18.239 s … 19.831 s    5 runs
+
+Benchmark 4: NODE_ENV=production pnpm nx run esbuild:build-rsbuild --environment=browser --skip-nx-cache
+Time (mean ± σ):     20.490 s ±  0.505 s    [User: 34.328 s, System: 6.533 s]
+Range (min … max):   19.869 s … 20.931 s    5 runs
+
+Summary
+NODE_ENV=production pnpm nx run esbuild:browser-rspack --skip-nx-cache ran
+1.08 ± 0.04 times faster than NODE_ENV=production pnpm nx run esbuild:build-rsbuild --environment=browser --skip-nx-cache
+1.29 ± 0.06 times faster than pnpm nx run esbuild:browser-esbuild --skip-nx-cache
+11.81 ± 2.30 times faster than NODE_OPTIONS="--max-old-space-size=8192" pnpm nx run esbuild:browser-webpack --skip-nx-cache
+
 ```
 
-These targets are either [inferred automatically](https://nx.dev/concepts/inferred-tasks?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) or defined in the `project.json` or `package.json` files.
-
-[More about running tasks in the docs &raquo;](https://nx.dev/features/run-tasks?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-
-## Add new projects
-
-While you could add new projects to your workspace manually, you might want to leverage [Nx plugins](https://nx.dev/concepts/nx-plugins?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) and their [code generation](https://nx.dev/features/generate-code?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) feature.
-
-To install a new plugin you can use the `nx add` command. Here's an example of adding the React plugin:
-```sh
-npx nx add @nx/react
+**Prod SSR Benchmark**
 ```
+Benchmark 1: NODE_OPTIONS="--max-old-space-size=8192" pnpm nx run esbuild:build-webpack --skip-nx-cache
+Time (mean ± σ):     348.707 s ± 60.735 s    [User: 892.480 s, System: 225.305 s]
+Range (min … max):   293.157 s … 446.738 s    5 runs
 
-Use the plugin's generator to create new projects. For example, to create a new React app or library:
+Benchmark 2: pnpm nx run esbuild:build-esbuild --skip-nx-cache
+Time (mean ± σ):     28.509 s ±  1.937 s    [User: 58.441 s, System: 7.859 s]
+Range (min … max):   26.407 s … 31.547 s    5 runs
 
-```sh
-# Generate an app
-npx nx g @nx/react:app demo
+Benchmark 3: pnpm nx run esbuild:build-rspack --skip-nx-cache
+Time (mean ± σ):     19.974 s ±  0.441 s    [User: 65.574 s, System: 12.888 s]
+Range (min … max):   19.377 s … 20.427 s    5 runs
 
-# Generate a library
-npx nx g @nx/react:lib some-lib
+Benchmark 4: pnpm nx run esbuild:build-rsbuild --skip-nx-cache
+Time (mean ± σ):     24.690 s ±  0.262 s    [User: 64.060 s, System: 12.495 s]
+Range (min … max):   24.442 s … 25.095 s    5 runs
+
+Summary
+pnpm nx run esbuild:build-rspack --skip-nx-cache ran
+1.24 ± 0.03 times faster than pnpm nx run esbuild:build-rsbuild --skip-nx-cache
+1.43 ± 0.10 times faster than pnpm nx run esbuild:build-esbuild --skip-nx-cache
+17.46 ± 3.07 times faster than NODE_OPTIONS="--max-old-space-size=8192" pnpm nx run esbuild:build-webpack --skip-nx-cache
 ```
-
-You can use `npx nx list` to get a list of installed plugins. Then, run `npx nx list <plugin-name>` to learn about more specific capabilities of a particular plugin. Alternatively, [install Nx Console](https://nx.dev/getting-started/editor-setup?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) to browse plugins and generators in your IDE.
-
-[Learn more about Nx plugins &raquo;](https://nx.dev/concepts/nx-plugins?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) | [Browse the plugin registry &raquo;](https://nx.dev/plugin-registry?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-
-
-[Learn more about Nx on CI](https://nx.dev/ci/intro/ci-with-nx#ready-get-started-with-your-provider?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-
-## Install Nx Console
-
-Nx Console is an editor extension that enriches your developer experience. It lets you run tasks, generate code, and improves code autocompletion in your IDE. It is available for VSCode and IntelliJ.
-
-[Install Nx Console &raquo;](https://nx.dev/getting-started/editor-setup?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-
-## Useful links
-
-Learn more:
-
-- [Learn more about this workspace setup](https://nx.dev/getting-started/intro#learn-nx?utm_source=nx_project&amp;utm_medium=readme&amp;utm_campaign=nx_projects)
-- [Learn about Nx on CI](https://nx.dev/ci/intro/ci-with-nx?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-- [Releasing Packages with Nx release](https://nx.dev/features/manage-releases?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-- [What are Nx plugins?](https://nx.dev/concepts/nx-plugins?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-
-And join the Nx community:
-- [Discord](https://go.nx.dev/community)
-- [Follow us on X](https://twitter.com/nxdevtools) or [LinkedIn](https://www.linkedin.com/company/nrwl)
-- [Our Youtube channel](https://www.youtube.com/@nxdevtools)
-- [Our blog](https://nx.dev/blog?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
